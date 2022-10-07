@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Container = styled.div`
   height: 60px;
@@ -45,7 +46,16 @@ const Logo = styled.h1`
   font-weight: bold;
 `;
 const Right = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   flex: 1;
+`;
+
+const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
 `;
 
 const Navbar = () => {
@@ -56,13 +66,19 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input />
-            <BiSearch />
+            <BiSearch style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
           <Logo>REACT.</Logo>
         </Center>
-        <Right>Right</Right>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <AiOutlineShoppingCart fontSize={24} />
+          </MenuItem>
+        </Right>
       </Wrapper>
     </Container>
   );
