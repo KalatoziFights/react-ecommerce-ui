@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import iPhone from "../assets/iphone14.webp";
+import { sliderItems } from "../data";
+import iPhone14 from "../assets/iphone14.jpg";
+import iPhone from "../assets/iphone.webp";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   position: relative;
+  overflow: hidden;
+  background-color: #f5fafd;
 `;
 
 const Arrow = styled.div`
@@ -16,7 +20,6 @@ const Arrow = styled.div`
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: #fff7f7;
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -25,12 +28,14 @@ const Arrow = styled.div`
   right: ${({ direction }) => direction === "right" && "10px"};
   margin: auto;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.6;
+  z-index: 2;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  translate: 0vw;
 `;
 
 const Slide = styled.div`
@@ -38,6 +43,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: ${({ bg }) => bg};
 `;
 const ImgContainer = styled.div`
   height: 100%;
@@ -69,38 +75,28 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const handleClick = (direction) => {};
   return (
     <Container>
-      <Arrow direction="left">
+      <Arrow direction="left" onClick={() => handleClick("left")}>
         <AiOutlineArrowLeft />
       </Arrow>
       <Wrapper>
-        <Slide>
-          <ImgContainer>
-            <Image style={{ objectFit: "cover" }} src={iPhone} />
-          </ImgContainer>
-          <InfoContainer>
-            <Title>iPhone 14 PRO MAX</Title>
-            <Description>
-              GET NEW BRAND ON SALE! GET FLAT 30% OFF FOR NEW ARRIVALS.
-            </Description>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
-        <Slide>
-          <ImgContainer>
-            <Image style={{ objectFit: "cover" }} src={iPhone} />
-          </ImgContainer>
-          <InfoContainer>
-            <Title>iPhone 14 PRO MAX</Title>
-            <Description>
-              GET NEW BRAND ON SALE! GET FLAT 30% OFF FOR NEW ARRIVALS.
-            </Description>
-            <Button>SHOW NOW</Button>
-          </InfoContainer>
-        </Slide>
+        {sliderItems?.map((item) => (
+          <Slide key={item.id} bg={item.bg}>
+            <ImgContainer>
+              <Image style={{ marginLeft: "70px" }} src={item.img} />
+            </ImgContainer>
+            <InfoContainer>
+              <Title>{item.title}</Title>
+              <Description>{item.desc}</Description>
+              <Button>SHOW NOW</Button>
+            </InfoContainer>
+          </Slide>
+        ))}
       </Wrapper>
-      <Arrow direction="right">
+      <Arrow direction="right" onClick={() => handleClick("right")}>
         <AiOutlineArrowRight />
       </Arrow>
     </Container>
