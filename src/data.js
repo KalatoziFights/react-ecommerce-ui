@@ -1,21 +1,25 @@
+import iph1 from "./assets/iph1.png";
+import iph2 from "./assets/iph2.png";
+import iph3 from "./assets/iph3.png";
+
 export const sliderItems = [
   {
     id: 1,
-    img: "https://www.pngall.com/wp-content/uploads/13/iPhone-14-PNG.png",
+    img: iph1,
     title: "SUMMER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "f5fafd",
   },
   {
     id: 2,
-    img: "https://www.pngmart.com/files/22/iPhone-14-PNG-Transparent.png",
+    img: iph2,
     title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "fcf1ed",
   },
   {
     id: 3,
-    img: "https://media.croma.com/image/upload/v1662703834/Croma%20Assets/Communication/Mobiles/Images/261938_mygofo.png",
+    img: iph3,
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "fbf0f4",

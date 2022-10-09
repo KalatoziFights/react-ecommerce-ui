@@ -35,7 +35,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
-  translate: 0vw;
+  translate: ${({ slideIndex }) => slideIndex * -100}vw;
 `;
 
 const Slide = styled.div`
@@ -76,13 +76,20 @@ const Button = styled.button`
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const handleClick = (direction) => {};
+
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
+  };
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
         <AiOutlineArrowLeft />
       </Arrow>
-      <Wrapper>
+      <Wrapper slideIndex={slideIndex}>
         {sliderItems?.map((item) => (
           <Slide key={item.id} bg={item.bg}>
             <ImgContainer>
