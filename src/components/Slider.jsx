@@ -35,6 +35,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  transition: all 1.5s ease;
   translate: ${({ slideIndex }) => slideIndex * -100}vw;
 `;
 
