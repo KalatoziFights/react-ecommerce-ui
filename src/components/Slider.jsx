@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { sliderItems } from "../data";
-import iPhone14 from "../assets/iphone14.jpg";
-import iPhone from "../assets/iphone.webp";
 
 const Container = styled.div`
   width: 100%;
@@ -35,7 +33,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
-  transition: all 1.5s ease;
+  /* transition: all 1.5s ease; */
   translate: ${({ slideIndex }) => slideIndex * -100}vw;
 `;
 
