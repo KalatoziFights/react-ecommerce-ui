@@ -33,6 +33,13 @@ const Button = styled.button`
   background-color: white;
   color: gray;
   cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: #000;
+    scale: 1.1;
+    font-weight: 700;
+  }
 `;
 
 const CategoryItem = ({ item }) => {
