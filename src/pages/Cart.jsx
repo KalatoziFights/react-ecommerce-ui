@@ -42,9 +42,6 @@ const Bottom = styled.div`
 const Info = styled.div`
   flex: 3;
 `;
-const Summary = styled.div`
-  flex: 1;
-`;
 
 const Product = styled.div`
   display: flex;
@@ -100,6 +97,43 @@ const HR = styled.hr`
   height: 1px;
 `;
 
+const Add = styled.div`
+  font-size: 25px;
+  cursor: pointer;
+`;
+const Remove = styled.div`
+  font-size: 25px;
+  cursor: pointer;
+`;
+
+const Summary = styled.div`
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+`;
+const SummaryTitle = styled.h1`
+  font-weight: 200;
+`;
+const SummaryItem = styled.div`
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: ${({ type }) => type === "total" && "500"};
+  font-size: ${({ type }) => type === "total" && "24px"};
+`;
+const SummaryItemText = styled.span``;
+const SummaryItemPrice = styled.span``;
+const Button = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+`;
+
 const Cart = () => {
   return (
     <Container>
@@ -136,9 +170,9 @@ const Cart = () => {
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  add
+                  <Add>+</Add>
                   <ProductAmount>2</ProductAmount>
-                  remove
+                  <Remove>-</Remove>
                 </ProductAmountContainer>
                 <ProductPrice>$ 30</ProductPrice>
               </PriceDetail>
@@ -163,42 +197,34 @@ const Cart = () => {
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  add
+                  <Add>+</Add>
                   <ProductAmount>2</ProductAmount>
-                  remove
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
-            <HR />
-            <Product>
-              <ProductDetail>
-                <Image src="https://cdn-images.farfetch-contents.com/12/98/05/13/12980513_15990369_1000.jpg" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size:</b>
-                    37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  add
-                  <ProductAmount>2</ProductAmount>
-                  remove
+                  <Remove>-</Remove>
                 </ProductAmountContainer>
                 <ProductPrice>$ 30</ProductPrice>
               </PriceDetail>
             </Product>
           </Info>
-          <Summary>summary</Summary>
+          <Summary>
+            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Estimated Shipping</SummaryItemText>
+              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice>$ 80</SummaryItemPrice>
+            </SummaryItem>
+            <Button>CHECKOUT NOW</Button>
+          </Summary>
         </Bottom>
       </Wrapper>
       <Footer />
