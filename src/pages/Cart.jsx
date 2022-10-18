@@ -17,12 +17,17 @@ const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 20px;
 `;
 
 const TopButton = styled.button`
   padding: 10px;
   font-weight: 600;
   cursor: pointer;
+  border: ${({ type }) => type === "filled" && "none"};
+  background-color: ${({ type }) =>
+    type === "filled" ? "black" : "transparent"};
+  color: ${({ type }) => type === "filled" && "white"};
 `;
 
 const TopTexts = styled.div``;
@@ -46,7 +51,7 @@ const Cart = () => {
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
-          <TopButton>CHECKOUT NOW</TopButton>
+          <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>34</Bottom>
       </Wrapper>
