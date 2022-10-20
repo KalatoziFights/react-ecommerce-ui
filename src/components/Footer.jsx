@@ -4,9 +4,11 @@ import { FiMapPin } from "react-icons/fi";
 import { AiFillFacebook, AiTwotonePhone, AiOutlineMail } from "react-icons/ai";
 import { FaTwitterSquare } from "react-icons/fa";
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 const Left = styled.div`
   flex: 1;
@@ -17,10 +19,12 @@ const Left = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ display: "none" })}
 `;
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ backgroundColor: "#fff8f8" })}
 `;
 
 const Title = styled.h3`
@@ -47,6 +51,7 @@ const ContactItem = styled.div`
 `;
 const Payment = styled.img`
   width: 50%;
+  ${mobile({ width: "80%" })}
 `;
 
 const Logo = styled.h1``;

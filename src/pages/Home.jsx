@@ -9,7 +9,7 @@ import Slider from "../components/Slider";
 
 const Home = () => {
   return (
-    <>
+    <div style={{ outline: "1px solid yellow" }}>
       <Announcement />
       <Navbar />
       <Slider />
@@ -17,7 +17,7 @@ const Home = () => {
       <Products />
       <Newsletter />
       <Footer />
-    </>
+    </div>
   );
 };
 
