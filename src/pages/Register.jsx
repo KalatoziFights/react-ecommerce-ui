@@ -1,6 +1,7 @@
 import React from "react";
 import shop from "../assets/shop.webp";
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100vw;
@@ -16,6 +17,7 @@ const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.2);
+  ${mobile({ width: "80%" })}
 `;
 const Title = styled.h1`
   font-size: 24px;
@@ -42,6 +44,7 @@ const Button = styled.button`
   background-color: teal;
   color: #fff;
   cursor: pointer;
+  ${mobile({ width: "96%" })}
 `;
 
 const Register = () => {
